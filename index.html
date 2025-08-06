@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Пупшев Даниил — Резюме</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    :root {
+      --bg-color: #f5f7fa;
+      --text-color: #1f2937;
+      --header-color: #2c3e50;
+      --hover-bg: #e5e7eb;
+      --hover-text: #111827;
+      --link-color: #4b5563;
+      --accent-color: #6b7280;
+      --shadow-color: rgba(100, 100, 100, 0.4); /* более серая тень */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      transition: padding 0.3s ease;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 90vw;
+      background: white;
+      border-radius: 16px;
+      padding: 3rem;
+      box-shadow: 0 0 15px rgba(100, 100, 100, 0.15);
+      position: relative;
+      transition: box-shadow 0.5s ease, transform 0.3s ease;
+      will-change: box-shadow, transform;
+      cursor: default;
+    }
+
+    .container.glow {
+      box-shadow: 0 0 60px 30px var(--shadow-color);
+      transform: scale(1.03);
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      color: var(--header-color);
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      margin-top: 2.5rem;
+      color: var(--header-color);
+      position: relative;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+
+    h2:hover {
+      color: var(--link-color);
+    }
+
+    h2::after {
+      content: " (нажмите для деталей)";
+      font-size: 0.85rem;
+      color: var(--accent-color);
+      opacity: 0;
+      transition: opacity 0.3s;
+      margin-left: 6px;
+    }
+
+    h2:hover::after {
+      opacity: 1;
+    }
+
+    .section p,
+    .section ul,
+    .section div {
+      display: none;
+      margin-top: 1rem;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .section.active p,
+    .section.active ul,
+    .section.active div {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .contact {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact a {
+      margin: 0 0.5rem;
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: #d1d5db;
+      border-radius: 6px;
+      color: var(--text-color);
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .contact a:hover {
+      background: var(--link-color);
+      color: white;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      color: var(--link-color);
+    }
+
+    .lang-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .lang-list li::before {
+      content: "• ";
+      color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+
+      .container {
+        width: 100vw;
+        border-radius: 0;
+        padding: 1.5rem;
+        box-shadow: 0 0 8px rgba(100, 100, 100, 0.1);
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        margin-top: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="resume-container">
+    <h1>Пупшев Даниил Сергеевич</h1>
+    <div class="contact">
+      <a href="mailto:pupsevd@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://t.me/daniil_pupshev" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i> Telegram</a>
+      <a href="https://github.com/DaniilPupshev" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Цель</h2>
+      <p>Фриланс-проекты на Python (backend, Telegram-боты, ML)</p>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Навыки</h2>
+      <ul>
+        <li>Языки программирования: Python, JavaScript, C++, SQL</li>
+        <li>Фреймворки: Django REST Framework</li>
+        <li>Инструменты и технологии: Git, API, SQLite, asyncio, MFC</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Образование</h2>
+      <p>
+        <strong>Московский политехнический университет</strong>, 2 курс<br />
+        Направление: Прикладная механика<br />
+        Факультет: Программирование и инновационные технологии в динамике и прочности<br />
+        Активное участие в научной деятельности внутри и за пределами вуза.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Опыт работы</h2>
+      <p>
+        <strong>ООО «ЭКРАН», лаборант (3 месяца)</strong><br />
+        – Ведение проекта по автоматизации выпуска инженерной документации<br />
+        – Написание скриптов на Python<br />
+        – Взаимодействие с инженерами и документацией
+      </p>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Проекты</h2>
+      <div>
+        <div class="project-title">RPB bot</div>
+        <p>
+          Telegram-бот, напоминающий о подписках и платежах<br />
+          <a href="https://github.com/DaniilPupshev/RPB_bot" target="_blank" rel="noopener">GitHub: RPB_bot</a>
+        </p>
+        <div class="project-title">RegularRazbivObl</div>
+        <p>
+          Инструмент для разбивки области методом конечных элементов<br />
+          <a href="https://github.com/DaniilPupshev/RegularRazbivObl" target="_blank" rel="noopener">GitHub: RegularRazbivObl</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 onclick="toggle(this)">Языки</h2>
+      <ul class="lang-list">
+        <li>Русский — родной</li>
+        <li>Английский — технический и базовый разговорный</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Переключение отображения разделов
+    function toggle(el) {
+      el.parentElement.classList.toggle("active");
+    }
+
+    // Эффект "вылезания" тени при наведении
+    const container = document.getElementById("resume-container");
+    container.addEventListener("mouseenter", () => {
+      container.classList.add("glow");
+    });
+    container.addEventListener("mouseleave", () => {
+      container.classList.remove("glow");
+    });
+
+    // Опционально: изменение отступов body под размер экрана (не обязательно, но можно)
+    function adjustPadding() {
+      const width = window.innerWidth;
+      if (width < 500) {
+        document.body.style.padding = "0.5rem";
+      } else if (width < 768) {
+        document.body.style.padding = "1rem";
+      } else {
+        document.body.style.padding = "2rem";
+      }
+    }
+    window.addEventListener("resize", adjustPadding);
+    adjustPadding();
+  </script>
+</body>
+</html>
